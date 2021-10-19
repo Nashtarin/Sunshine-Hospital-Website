@@ -10,59 +10,67 @@ import Footer from './Pages/Shared/Footer/Footer';
 import ContactUs from './Pages/Contact Us/ContactUs';
 import Aboutus from './Pages/About us/Aboutus';
 import Packages from './Pages/Packages/Packages';
-import Doctors from './Pages/Doctors/Doctors';
+
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
+import Doctors from './Pages/Doctors/Doctors';
+import AuthProvider from './Pages/Context/AuthProvider';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+
+
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path='/'>
+              <Home></Home>
 
-          </Route>
-          <Route path='/home'>
-            <Home></Home>
+            </Route>
+            <Route path='/home'>
+              <Home></Home>
 
-          </Route>
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-          <Route path='/signup'>
-            <Signup></Signup>
+            </Route>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+            <Route path='/signup'>
+              <Signup></Signup>
 
-          </Route>
-          <Route path='/contactus'>
-            <ContactUs></ContactUs>
-          </Route>
-          <Route path='/aboutus'>
-            <Aboutus></Aboutus>
-          </Route>
-          <Route path='/packages'>
-            <Packages></Packages>
-          </Route>
-          <Route path='/doctors'>
-            <Doctors></Doctors>
-          </Route>
-          <Route path='/services/:serviceId'>
-            <ServiceDetail></ServiceDetail>
-          </Route>
-          <Route path='*'>
-            <Notfound></Notfound>
+            </Route>
+            <Route path='/contactus'>
+              <ContactUs></ContactUs>
+            </Route>
+            <Route path='/aboutus'>
+              <Aboutus></Aboutus>
+            </Route>
+            <PrivateRoute path='/packages'>
+              <Packages></Packages>
+            </PrivateRoute>
 
-          </Route>
+            <Route path='/services/:serviceId'>
+              <ServiceDetail></ServiceDetail>
+            </Route>
+            <PrivateRoute path="/doctors">
+              <Doctors></Doctors>
+            </PrivateRoute>
+            <Route path='*'>
+              <Notfound></Notfound>
 
-
-
-        </Switch>
-        <Footer></Footer>
+            </Route>
 
 
 
+          </Switch>
+          <Footer></Footer>
 
-      </Router>
+
+
+
+        </Router>
+      </AuthProvider>
 
     </div>
   );
