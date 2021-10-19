@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import EachService from '../Service/EachService';
+
 import './Service.css'
 
 const Services = (props) => {
@@ -18,7 +18,7 @@ const Services = (props) => {
                     </Link>
                 </div>
             </div>
-            {<EachService data={props.services}></EachService>}
+
         </div>
     );
 };
