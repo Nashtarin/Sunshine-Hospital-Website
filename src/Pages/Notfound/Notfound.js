@@ -3,7 +3,7 @@ import notfound from '../../images/404.jpg'
 
 const Notfound = () => {
     return (
-        <div>
+        <div className="mb-5">
             <h1 className='text-danger'>Oops!Page Not Found!</h1>
 
 

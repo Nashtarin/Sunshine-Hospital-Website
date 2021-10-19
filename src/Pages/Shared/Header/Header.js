@@ -22,7 +22,6 @@ const Header = () => {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-
                                 <Nav.Link ><Link to='/home'>Home</Link></Nav.Link>
                                 <Nav.Link ><Link to='/aboutus'>About Us</Link></Nav.Link>
                                 <Nav.Link ><Link to='/doctors'>Doctors</Link></Nav.Link>
@@ -30,7 +29,9 @@ const Header = () => {
                                 <Nav.Link ><Link to='/contactus'>Contact Us</Link></Nav.Link>
 
 
-                                <Link to='/login'><Button variant="warning">Login</Button></Link>
+                                {user.email ? <div><span>{user.displayName}  </span><Button onClick={logout} className='me-3' variant="warning">Logout</Button></div> :
+                                    <Link to='/login'><Button className='me-3' variant="warning">Login</Button></Link>}
+                                <Link to='/signup'><Button variant="warning">Sign Up</Button></Link>
                             </Nav>
 
 

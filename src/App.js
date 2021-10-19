@@ -11,6 +11,7 @@ import ContactUs from './Pages/Contact Us/ContactUs';
 import Aboutus from './Pages/About us/Aboutus';
 import Packages from './Pages/Packages/Packages';
 import Doctors from './Pages/Doctors/Doctors';
+import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/doctors'>
             <Doctors></Doctors>
+          </Route>
+          <Route path='/services/:serviceId'>
+            <ServiceDetail></ServiceDetail>
           </Route>
           <Route path='*'>
             <Notfound></Notfound>
