@@ -2,7 +2,7 @@
 
 You can go to my website by clicking here [Sunshine Hospital](https://sunshine-hospital.web.app/).
 
-### Description of project:
+
 I made a website for a hospital named as Sunshine Hospital.People can easily know about the hospital by visiting my site as I depicted different services, facilities in the project
 * In header I created some routes so that user can experience different pages and also there are sign in and sign up options.
 * User can signin in two different ways,first by giving email and Password(prior to this a new user must sign up him/herself) and another one is by google email sign in.
