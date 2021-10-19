@@ -50,9 +50,9 @@ function App() {
               <Packages></Packages>
             </PrivateRoute>
 
-            <Route path='/services/:serviceId'>
+            <PrivateRoute path='/services/:serviceId'>
               <ServiceDetail></ServiceDetail>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/doctors">
               <Doctors></Doctors>
             </PrivateRoute>

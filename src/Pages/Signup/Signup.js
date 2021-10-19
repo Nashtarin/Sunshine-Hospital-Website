@@ -3,10 +3,11 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
+
 
 const Signup = () => {
-    const { googleSignIn, handleSignUp, handleName, handleemail, handlepassword, error, user } = useFirebase()
+    const { googleSignIn, handleSignUp, handleName, handleemail, handlepassword, error, user } = useAuth();
     return (
         <div>
             <div>

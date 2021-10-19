@@ -1,10 +1,21 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
 
 const Login = () => {
-    const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess } = useFirebase()
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home'
+    console.log('came from', location.state?.from)
+    const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess, error } = useAuth();
+    const handleGoogleLogin = () => {
+        googleSignIn()
+            .then(result => {
+                history.push(redirect_uri);
+            })
+    }
     return (
         <div>
             <h1 className="text-warning">Please {islogin ? 'Sign Up' : 'Login'}</h1>
@@ -18,9 +29,10 @@ const Login = () => {
             <input onChange={togglelogin} type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" htmlFor="exampleCheck1">Are you new to Sunshine Hospital?{islogin && <div><h6>Please Go to <Link to='/signup'>Sign Up</Link> page</h6></div>}</label>
             <br />
+            <p className='text-danger'>{error}</p>
             <Button onClick={loginProcess} className='mb-2' variant="warning">Login</Button>
             <br />
-            <Button className="mb-2" onClick={googleSignIn} variant="warning">Google Sign in</Button>
+            <Button className="mb-2" onClick={handleGoogleLogin} variant="warning">Google Sign in</Button>
         </div >
     );
 };

@@ -13,10 +13,10 @@ const useFirebase = () => {
     const [name, setName] = useState('')
     const [islogin, setislogin] = useState(false)
     const googleSignIn = () => {
-        signInWithPopup(auth, googleprovider)
-            .then(result => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleprovider)
+        // .then(result => {
+        //     setUser(result.user);
+        // })
     }
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -78,7 +78,7 @@ const useFirebase = () => {
                 setError('')
             })
             .catch(error => {
-                setError(error.message)
+                setError('Password or Email did not match')
             })
 
     }
@@ -89,7 +89,7 @@ const useFirebase = () => {
             return;
         }
         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password must contain two uppercae')
+            setError('Password must contain two uppercase')
             return;
         }
         islogin ? loginProcess(email, password) : createNewUser(email, password);

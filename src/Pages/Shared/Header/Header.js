@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
+
 import logo from '../../../images/logoloaded.png'
 import './header.css';
 
 const Header = () => {
-    const { logout, googleSignIn, user } = useFirebase()
+    const { logout, googleSignIn, user } = useAuth()
     return (
         <div className='d-flex justify-content-between'>
             <img className="me-5" style={{ height: "100px" }} src={logo} alt="" />
@@ -29,7 +30,7 @@ const Header = () => {
                                 <Nav.Link ><Link to='/contactus'>Contact Us</Link></Nav.Link>
 
 
-                                {user.email ? <div><span>{user.displayName}  </span><Button onClick={logout} className='me-3' variant="warning">Logout</Button></div> :
+                                {user.displayName ? <div><span>{user.displayName}  </span><Button onClick={logout} className='me-3' variant="warning">Logout</Button></div> :
                                     <Link to='/login'><Button className='me-3' variant="warning">Login</Button></Link>}
                                 <Link to='/signup'><Button variant="warning">Sign Up</Button></Link>
                             </Nav>
