@@ -108,7 +108,7 @@ const useFirebase = () => {
         user,
         handleemail,
         handlepassword,
-        togglelogin, islogin, handleSignUp, handleName, error, loginProcess, setIsLoading, isLoading
+        togglelogin, islogin, handleSignUp, handleName, error, loginProcess, setIsLoading, isLoading, setError
     }
 
 }

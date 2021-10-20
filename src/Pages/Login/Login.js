@@ -7,11 +7,11 @@ import useAuth from '../../Hooks/useAuth';
 const Login = () => {
     const location = useLocation();
     const history = useHistory();
-    const { setIsLoading, isLoading, email, password, setError, error } = useAuth();
+    const { setIsLoading, googleSignIn, isLoading, handleemail, handlepassword, islogin, loginProcess, togglelogin, email, password, setError, error } = useAuth();
     const redirect_uri = location.state?.from || '/home'
     console.log('came from', location.state?.from)
 
-    const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess } = useAuth();
+    // const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess } = useAuth();
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(result => {
@@ -20,7 +20,10 @@ const Login = () => {
     }
     const handleSigninwithemailpassword = () => {
         loginProcess()
-            .then(result => history.push(redirect_uri)).finally(() => setIsLoading(false))
+            .then(result => {
+                history.push(redirect_uri)
+                setError('');
+            }).catch(error => { setError('Password and/or Email did not match') }).finally(() => setIsLoading(false))
     }
 
     return (
