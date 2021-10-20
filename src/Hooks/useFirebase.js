@@ -74,15 +74,15 @@ const useFirebase = () => {
             })
 
     }
-    const loginProcess = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                window.location.reload()
-                console.log(user);
-                setError('')
-            }).finally(() => setIsLoading(false))
+    const loginProcess = () => {
+        return signInWithEmailAndPassword(auth, email, password)
+        // .then((userCredential) => {
+        //     // Signed in 
+        //     const user = userCredential.user;
+        //     window.location.reload()
+        //     console.log(user);
+        //     setError('')
+        // }).finally(() => setIsLoading(false))
 
     }
     const handleSignUp = e => {

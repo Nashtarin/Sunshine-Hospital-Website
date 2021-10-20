@@ -18,7 +18,10 @@ const Login = () => {
                 history.push(redirect_uri);
             }).finally(() => setIsLoading(false))
     }
-
+    const handleSigninwithemailpassword = () => {
+        loginProcess()
+            .then(result => history.push(redirect_uri)).finally(() => setIsLoading(false))
+    }
 
     return (
         <div>
@@ -34,7 +37,7 @@ const Login = () => {
             <label className="form-check-label" htmlFor="exampleCheck1">Are you new to Sunshine Hospital?{islogin && <div><h6>Please Go to <Link to='/signup'>Sign Up</Link> page</h6></div>}</label>
             <br />
             <p className='text-danger'>{error}</p>
-            <Button onClick={loginProcess} className='mb-2' variant="warning">Login</Button>
+            <Button onClick={handleSigninwithemailpassword} className='mb-2' variant="warning">Login</Button>
             <br />
             <Button className="mb-2" onClick={handleGoogleLogin} variant="warning">Google Sign in</Button>
         </div >
