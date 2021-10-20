@@ -3,3 +3,11 @@
     border-radius: 20px;
     background-color: thistle;
 }
+.doctor img{
+    height:150px;
+    width: 300px;
+    margin: auto;
+    border-radius: 20px;
+    border:1px solid goldenrod;
+    padding: 2px;
+}

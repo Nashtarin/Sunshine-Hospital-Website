@@ -7,15 +7,19 @@ import useAuth from '../../Hooks/useAuth';
 const Login = () => {
     const location = useLocation();
     const history = useHistory();
+    const { setIsLoading, isLoading, email, password, setError, error } = useAuth();
     const redirect_uri = location.state?.from || '/home'
     console.log('came from', location.state?.from)
-    const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess, error } = useAuth();
+
+    const { googleSignIn, handleemail, handlepassword, togglelogin, islogin, loginProcess } = useAuth();
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(result => {
                 history.push(redirect_uri);
-            })
+            }).finally(() => setIsLoading(false))
     }
+
+
     return (
         <div>
             <h1 className="text-warning">Please {islogin ? 'Sign Up' : 'Login'}</h1>

@@ -12,7 +12,9 @@ const useFirebase = () => {
     const [error, setError] = useState('')
     const [name, setName] = useState('')
     const [islogin, setislogin] = useState(false)
+    const [isLoading, setIsLoading] = useState(true);
     const googleSignIn = () => {
+        setIsLoading(true);
         return signInWithPopup(auth, googleprovider)
         // .then(result => {
         //     setUser(result.user);
@@ -23,6 +25,10 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
             }
+            else {
+                setUser({})
+            }
+            setIsLoading(false)
         });
 
     }, [])
@@ -40,11 +46,10 @@ const useFirebase = () => {
     }
 
     const logout = () => {
+        setIsLoading(true)
         signOut(auth).then(() => {
             setUser({})
-        }).catch((error) => {
-            // An error happened.
-        });
+        }).finally(() => setIsLoading(false))
     }
     const setUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
@@ -54,7 +59,8 @@ const useFirebase = () => {
 
     }
     const createNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
+        setIsLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -68,18 +74,15 @@ const useFirebase = () => {
             })
 
     }
-    const loginProcess = () => {
+    const loginProcess = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-
+                window.location.reload()
                 console.log(user);
                 setError('')
-            })
-            .catch(error => {
-                setError('Password or Email did not match')
-            })
+            }).finally(() => setIsLoading(false))
 
     }
     const handleSignUp = e => {
@@ -105,7 +108,7 @@ const useFirebase = () => {
         user,
         handleemail,
         handlepassword,
-        togglelogin, islogin, handleSignUp, handleName, error, loginProcess
+        togglelogin, islogin, handleSignUp, handleName, error, loginProcess, setIsLoading, isLoading
     }
 
 }

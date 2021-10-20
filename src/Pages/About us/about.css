@@ -1,0 +1,10 @@
+.about{
+    border:1px solid yellow;
+    border-radius: 25px;
+    background-color:rgba(241, 203, 116, 0.404);
+   padding:2px;
+    margin:10px;
+    text-align: center;
+
+    
+}

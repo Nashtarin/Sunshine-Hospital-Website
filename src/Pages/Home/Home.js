@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+
 import useData from '../../Hooks/useServiceData';
 import Banner from './Banner/Banner';
 import Services from './Services/Services';
@@ -6,6 +6,9 @@ import app from '../../images/appandroid.jpg'
 import flower1 from '../../images/flower1.PNG'
 import flower2 from '../../images/flower2.PNG'
 import flower3 from '../../images/flower3.PNG'
+import './Home.css'
+
+
 
 const Home = () => {
     const [data] = useData();
@@ -22,23 +25,23 @@ const Home = () => {
                 ></Services>)}
             </div>
             <div className="my-3">
-                <h2 className="text-warning">Our Android App  is coming soon with exclusive features</h2>
+                <h2 className="app text-warning">Our Android App  is Coming Soon with Exclusive Features</h2>
                 <img className="w-75" src={app} alt="" />
             </div>
-            <div className="my-3">
+            <div className="my-3 p-3">
                 <h2 className="text-warning">Our Clients Reviews</h2>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col">
-                        <div className="card h-100">
+                        <div className="card flower h-100">
                             <img src={flower3} className="card-img-top" alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title">SABINA HOSSAIN / SHAHAJADPUR, DHAKA</h5>
-                                <p className="card-text">Sunshine Hospital is so good - everything in United Hospital is good, behavior and services all wonderful</p>
+                                <p className="card-text">Sunshine Hospital is so good - everything in Sunshine Hospital is good, behavior and services all wonderful</p>
                             </div>
                         </div>
                     </div>
                     <div className="col">
-                        <div className="card h-100">
+                        <div className="card flower h-100">
                             <img src={flower1} className="card-img-top" alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title">MD. YOUSUF HOSSAIN / DHAKA</h5>
@@ -47,7 +50,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="col">
-                        <div className="card h-100">
+                        <div className="card flower h-100">
                             <img src={flower2} className="card-img-top" alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title">HOSSAIN / UTTARA, DHAKA</h5>

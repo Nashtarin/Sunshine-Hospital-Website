@@ -38,4 +38,5 @@
 }
 body{
   background-color: rgba(245, 245, 206, 0.506);
+  overflow-x: hidden;
 }

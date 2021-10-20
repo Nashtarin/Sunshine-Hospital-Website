@@ -9,6 +9,7 @@ I made a website for a hospital named as Sunshine Hospital.People can easily kno
 * In home page I showed different services in short, in every service there is a details button by clicking this user can find the detail of that particular service but to know the detail user must be logged in first
 * The website also has doctors and packages pages and they are protected, a user should sign in first to visit there.
 * If any protected page asked for login and after successful login the website automatically redirected to the page where he/she was
+* When user signed in with google,they will be redirected to the page where they were
 * I used react,bootstrap mainly to make this site.
 #### Be healthy, Be Happy.  
 
