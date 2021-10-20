@@ -17,7 +17,7 @@ const ServiceDetail = () => {
 
     return (
         <div>
-            <div className="servicedetail card mx-auto" style={{ width: '65%' }}>
+            <div className="servicedetail card mx-auto my-5" style={{ width: '65%' }}>
                 <img style={{ height: "300px" }} src={img} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h2 className="card-title text-warning">{name}</h2>
@@ -37,7 +37,7 @@ const ServiceDetail = () => {
 
 
                 </div>
-                <h2 className="text-success">We guarantee you you will always feel comfort with our any kind of services </h2>
+                <h2 className="text-success">We guarantee, you will always feel comfort with our any kind of services </h2>
             </div>
 
 
